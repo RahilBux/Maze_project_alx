@@ -8,6 +8,17 @@
 #define MAP_HEIGHT 8
 #define TILE_SIZE 64
 
+int map[MAP_HEIGHT][MAP_WIDTH] = {
+    {1, 1, 1, 1, 1, 1, 1, 1},
+    {1, 0, 0, 0, 0, 0, 0, 1},
+    {1, 0, 1, 1, 1, 0, 1, 1},
+    {1, 0, 1, 0, 1, 0, 0, 1},
+    {1, 0, 1, 0, 1, 0, 0, 1},
+    {1, 0, 0, 0, 1, 0, 0, 1},
+    {1, 0, 1, 1, 1, 0, 0, 1},
+    {1, 1, 1, 1, 1, 1, 1, 1}
+};
+
 int loadMap(const char* filename) {
     FILE* file = fopen(filename, "r");
     if (!file) {
@@ -64,17 +75,6 @@ void handleInput(SDL_Event* event, float* angle, float* posX, float* posY) {
         }
     }
 }
-
-int map[MAP_HEIGHT][MAP_WIDTH] = {
-    {1, 1, 1, 1, 1, 1, 1, 1},
-    {1, 0, 0, 0, 0, 0, 0, 1},
-    {1, 0, 1, 1, 1, 0, 1, 1},
-    {1, 0, 1, 0, 1, 0, 0, 1},
-    {1, 0, 1, 0, 1, 0, 0, 1},
-    {1, 0, 0, 0, 1, 0, 0, 1},
-    {1, 0, 1, 1, 1, 0, 0, 1},
-    {1, 1, 1, 1, 1, 1, 1, 1}
-};
 
 void drawWall(SDL_Renderer* renderer, int x, int height, SDL_Color color) {
     SDL_Rect wall = {x, (SCREEN_HEIGHT - height) / 2, 1, height};
